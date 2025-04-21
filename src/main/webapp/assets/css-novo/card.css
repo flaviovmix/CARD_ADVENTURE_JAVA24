@@ -1,7 +1,7 @@
 .container-xl .card {
     position: relative;
     padding: 5px;
-    margin: 100px 350px;
+    margin: 100px 50px;
     width: 380px;
     aspect-ratio: 4/6;
     border-radius: 5px;
@@ -24,6 +24,7 @@
 }
 
 .container-xl .card .conteudo-card {
+    border: 1px solid rgb(179, 179, 179);
     position: relative;
     height: 90%;
     border-radius: 5px 5px 0 0 ;
@@ -32,23 +33,26 @@
 
 .container-xl .card .conteudo-card .area-info-personagem {
     background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0px 0px 10px #22222253;
     position: absolute;
-    width: 100%;
+    width: 99%;
     height: 100%;
+    margin-top: 2px;
     border-radius: 5px 5px 0 0 ;
     transition: right 0.3s ease;
     right: -100%;
 }
 
 .container-xl .card .conteudo-card .area-info-personagem.mostrar {
-    right: 0;
+    right: 2px;
 }
+
 
 .container-xl .card .conteudo-card .img-principal {
     object-fit: cover;
     object-position: center;
     padding: 2px;
-    border-radius: 5px 5px 0 0 ;
+    border-radius: 5px 5px 0 0;
     height: 100%;
     width: 100%;
 }
