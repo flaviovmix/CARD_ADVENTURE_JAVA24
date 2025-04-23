@@ -12,8 +12,10 @@
 
     <main>
         <div class="container-xl">
+            
             <div class="card">
-                <div class="menu-bolinha" id="btnMenuBolinhaCard">
+
+                <div class="menu-bolinha amostra" id="btnMenuBolinhaCard">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="349.569px" height="349.569px"
                         viewBox="0 0 349.569 349.569" style="enable-background:new 0 0 349.569 349.569;"
@@ -36,20 +38,30 @@
                         </g>
                     </svg>
                 </div>
+
                 <div class="conteudo-card">
-                    <div class="area-info-personagem mostrar" id="areaInfoPersonagem"></div>
-                    <img class="img-principal" src="../assets/pixel_ai/videl.1.png" alt="imagem da personagem 1" />
+                    <div class="area-info-personagem" id="areaInfoPersonagem">
+                        <H2>AA</H2>
+                        <H3>BB</H3>
+                        <P>
+                            LORE
+                        </P>
+                    </div>
+                    <img class="img-principal " id="imagemPrincipal" src="../assets/pixel_ai/videl.1.png" alt="imagem da personagem 1" />
+                    <div class="area-titulo-da-fase mostrar">
+                        <span id="areaTituloTexto">VIDEL SATAN</span>
+                    </div>
                 </div>
 
                 <div class="area-link-fases">
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-1.png" /></a>
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-2.png" /></a>
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-3.png" /></a>
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-4.png" /></a>
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-5.png" /></a>
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-6.png" /></a>
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-7.png" /></a>                        
-                    <a href="#"><img class="icone" src="../assets/pixel_ai/emoje-8.png" /></a>
+                    <a href="#" data-titulo="TRAJES NORMAIS"><img class="icone" src="../assets/pixel_ai/emoje-1.png" /></a>
+                    <a href="#" data-titulo="ACADEMIA"><img class="icone" src="../assets/pixel_ai/emoje-2.png" /></a>
+                    <a href="#" data-titulo="PRAIA"><img class="icone" src="../assets/pixel_ai/emoje-3.png" /></a>
+                    <a href="#" data-titulo="PISCINA"><img class="icone" src="../assets/pixel_ai/emoje-4.png" /></a>
+                    <a href="#" data-titulo="LENDO"><img class="icone" src="../assets/pixel_ai/emoje-5.png" /></a>
+                    <a href="#" data-titulo="DORMINDO"><img class="icone" src="../assets/pixel_ai/emoje-6.png" /></a>
+                    <a href="#" data-titulo="BANHO"><img class="icone" src="../assets/pixel_ai/emoje-7.png" /></a>
+                    <a href="#" data-titulo="NUA"><img class="icone" src="../assets/pixel_ai/emoje-8.png" /></a>
                 </div>    
 
             </div>
@@ -59,10 +71,60 @@
     <script>
         const btnMenuBolinhaCard = document.getElementById('btnMenuBolinhaCard');
         const areaInfoPersonagem = document.getElementById('areaInfoPersonagem');
+        const imagemPrincipal = document.getElementById('imagemPrincipal');
 
         btnMenuBolinhaCard.addEventListener('click', () => {
             areaInfoPersonagem.classList.toggle('mostrar');
+            imagemPrincipal.classList.toggle('mostrar');
         });
+    </script>
+
+
+
+<script>
+    
+    const tituloTexto = document.getElementById('areaTituloTexto');
+const nomePadrao = 'VIDEL SATAN';
+let timeoutVoltarPadrao = null;
+
+function trocarTextoComFade(novoTexto) {
+    tituloTexto.classList.add('texto-fade');
+
+    setTimeout(() => {
+        tituloTexto.textContent = novoTexto;
+        tituloTexto.classList.remove('texto-fade');
+    }, 300);
+}
+
+document.querySelectorAll('.area-link-fases a').forEach(function (item) {
+    const icon = item.querySelector('.icone');
+
+    item.addEventListener('mouseenter', function () {
+        clearTimeout(timeoutVoltarPadrao);
+        icon.style.transition = 'transform 0.3s ease';
+        icon.style.transform = 'translateY(-10px)';
+
+        const titulo = item.getAttribute('data-titulo');
+        trocarTextoComFade(titulo);
+    });
+
+    item.addEventListener('mouseleave', function () {
+        icon.style.transition = 'transform 0.3s ease';
+        icon.style.transform = 'translateY(0)';
+
+        timeoutVoltarPadrao = setTimeout(() => {
+            trocarTextoComFade(nomePadrao);
+        }, 1000);
+    });
+});
+
+    </script>
+    
+    
+    
+
+
+
     </script>
 
 </body>
