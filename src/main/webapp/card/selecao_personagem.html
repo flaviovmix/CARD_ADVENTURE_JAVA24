@@ -7,6 +7,7 @@
     
         <link rel="stylesheet" href="../assets/css-novo/ajustes/normalize.css">
         <link rel="stylesheet" href="../assets/css-novo/card.css">
+        <link rel="stylesheet" href="../assets/css-novo/area-info-personagem.css">
     </head>
 <body>
 
@@ -41,14 +42,12 @@
 
                 <div class="conteudo-card">
                     <div class="area-info-personagem" id="areaInfoPersonagem">
-                        <H2>AA</H2>
-                        <H3>BB</H3>
-                        <P>
-                            LORE
-                        </P>
+                        <div class="cabecalho"> 1 - 2 - 3 </div>
+                        <div class="tabela">4 - 5 - 6 </div>
+                        <div class="rodape"> 7 - 8 - 9 </div>
                     </div>
                     <img class="img-principal " id="imagemPrincipal" src="../assets/pixel_ai/videl.1.png" alt="imagem da personagem 1" />
-                    <div class="area-titulo-da-fase mostrar">
+                    <div class="area-titulo-da-fase mostrar" id="area-titulo-da-fase">
                         <span id="areaTituloTexto">VIDEL SATAN</span>
                     </div>
                 </div>
@@ -68,64 +67,8 @@
         </div>
     </main>
     
-    <script>
-        const btnMenuBolinhaCard = document.getElementById('btnMenuBolinhaCard');
-        const areaInfoPersonagem = document.getElementById('areaInfoPersonagem');
-        const imagemPrincipal = document.getElementById('imagemPrincipal');
-
-        btnMenuBolinhaCard.addEventListener('click', () => {
-            areaInfoPersonagem.classList.toggle('mostrar');
-            imagemPrincipal.classList.toggle('mostrar');
-        });
-    </script>
-
-
-
-<script>
-    
-    const tituloTexto = document.getElementById('areaTituloTexto');
-const nomePadrao = 'VIDEL SATAN';
-let timeoutVoltarPadrao = null;
-
-function trocarTextoComFade(novoTexto) {
-    tituloTexto.classList.add('texto-fade');
-
-    setTimeout(() => {
-        tituloTexto.textContent = novoTexto;
-        tituloTexto.classList.remove('texto-fade');
-    }, 300);
-}
-
-document.querySelectorAll('.area-link-fases a').forEach(function (item) {
-    const icon = item.querySelector('.icone');
-
-    item.addEventListener('mouseenter', function () {
-        clearTimeout(timeoutVoltarPadrao);
-        icon.style.transition = 'transform 0.3s ease';
-        icon.style.transform = 'translateY(-10px)';
-
-        const titulo = item.getAttribute('data-titulo');
-        trocarTextoComFade(titulo);
-    });
-
-    item.addEventListener('mouseleave', function () {
-        icon.style.transition = 'transform 0.3s ease';
-        icon.style.transform = 'translateY(0)';
-
-        timeoutVoltarPadrao = setTimeout(() => {
-            trocarTextoComFade(nomePadrao);
-        }, 1000);
-    });
-});
-
-    </script>
-    
-    
-    
-
-
-
-    </script>
+    <script src="../assets/js/mostrarAreaInfoPersonagem.js"></script>
+    <script src="../assets/js/alterarNomeFaseNomePersonagem.js"></script>
 
 </body>
 </html>
