@@ -1,8 +1,11 @@
-const btnMenuBolinhaCard = document.getElementById('btnMenuBolinhaCard');
-const areaInfoPersonagem = document.getElementById('areaInfoPersonagem');
-const imagemPrincipal = document.getElementById('imagemPrincipal');
+const botoes = document.querySelectorAll('.btnMenuBolinhaCard');
 
-btnMenuBolinhaCard.addEventListener('click', () => {
-    areaInfoPersonagem.classList.toggle('mostrar');
-    imagemPrincipal.classList.toggle('mostrar');
+botoes.forEach((botao, index) => {
+    botao.addEventListener('click', () => {
+        const areaInfo = document.querySelectorAll('.area-info-personagem')[index];
+        const imagem = document.querySelectorAll('.img-principal')[index];
+
+        areaInfo.classList.toggle('mostrar');
+        imagem.classList.toggle('mostrar');
+    });
 });
