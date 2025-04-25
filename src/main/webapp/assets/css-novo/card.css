@@ -1,11 +1,20 @@
+.container-xl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 95%;
+    margin: auto;
+    margin-top: 30px;
+}
+  
 .container-xl .card {
     position: relative;
-    padding: 5px;
-    margin: 10px 5px;
+    padding: 3px;
     width: 350px;
     aspect-ratio: 3.5/6;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px #22222253;
+    box-shadow: 0px 0px 2px #22222253;
 }
 
 .container-xl .card .menu-bolinha {
@@ -87,7 +96,8 @@
 
 .container-xl .card .area-link-fases {
     display: flex;
-    justify-content: space-between;
+    
+    justify-content: space-around;
     align-items: center;
     background-color: #efefef;
     height: 10%;
