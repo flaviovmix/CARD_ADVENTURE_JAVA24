@@ -64,21 +64,41 @@
 }
 
 .container-xl .card .conteudo-card .area-titulo-da-fase {
-    position: absolute; /* de relative para absolute */
-    bottom: 10px; /* ou o valor que quiser */
+    position: relative; /* de relative para absolute */
+    bottom: 40px; /* ou o valor que quiser */
     left: -260px;
     width: 75%;
-    background-color: rgba(102, 51, 153, 0.75);
+    background: linear-gradient(
+        to right,
+        rgba(102, 51, 153, 0.9) 0%,
+        rgba(102, 51, 153, 0.7) 10%,
+        rgba(102, 51, 153, 0) 50%
+    );
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.455);
     transition: opacity 0.3s ease;
     opacity: 1;
     z-index: 7;
+}
+
+.container-xl .card .conteudo-card .area-titulo-da-fase::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* espessura da "borda" */
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, .7) 0%,
+        rgba(0, 0, 0, 0.5) 5%,
+        rgba(0, 0, 0, 0) 15%
+    );
+    border-radius: 0 0 5px 5px; /* opcional: arredondar a borda também */
 }
 
 #areaTituloTexto {
@@ -92,6 +112,7 @@
 
 .container-xl .card .conteudo-card .area-titulo-da-fase.mostrar {
     left: 10px;
+    text-shadow: 1px 1px 5px black;
 }
 
 .container-xl .card .area-link-fases {
