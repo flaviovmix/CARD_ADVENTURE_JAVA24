@@ -14,6 +14,50 @@
     z-index: 2;
 }
 
+.container-xl .card .conteudo-card .area-info-personagem .cabecalho {
+    display: flex;
+    justify-content: space-between;
+}
+.container-xl .card .conteudo-card .area-info-personagem .cabecalho .are-face {
+    width: 120px;
+    height: 120px;
+    margin-bottom: -70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgb(94, 94, 94);
+    box-shadow: 3px 3px 5px #00000063;
+    background-color: rgb(216, 216, 216);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* imagem */
+.container-xl .card .conteudo-card .area-info-personagem .cabecalho .are-face .face {
+    height: 230%;
+    object-fit: cover;
+}
+
+.container-xl .card .conteudo-card .area-info-personagem .cabecalho .bandeira {
+    position: absolute;
+    width: 20%;
+    left: 110px;
+    top: 60px;
+    z-index: -1;
+}
+
+.container-xl .card .conteudo-card .area-info-personagem .cabecalho .face {
+    
+}
+.container-xl .card .conteudo-card .area-info-personagem .cabecalho .area-icone-thumb {
+    display: flex;
+}
+
+.container-xl .card .conteudo-card .area-info-personagem .area-icone-thumb img {
+    height: 30px;
+    margin: 0 5px;
+}
+
 .container-xl .card .conteudo-card .area-info-personagem.mostrar {
     right: 0;
 }
@@ -40,12 +84,6 @@
     z-index: -1;
 }
 
-.container-xl .card .conteudo-card .area-info-personagem h3 {
-    font-size: 18px;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
-}
-
 .container-xl .card .conteudo-card .area-info-personagem table td {
     width: 50%;
 }
@@ -67,4 +105,3 @@
 .container-xl .card .conteudo-card .area-info-personagem .rodape {
     margin-bottom: 30px;
 }
-
