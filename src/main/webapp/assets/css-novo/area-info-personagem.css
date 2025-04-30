@@ -49,11 +49,20 @@
 .container-xl .card .conteudo-card .area-info-personagem .cabecalho .face {
     
 }
-.container-xl .card .conteudo-card .area-info-personagem .cabecalho .area-icone-thumb {
+.container-xl .card .conteudo-card .area-info-personagem .cabecalho .classificacao {
     display: flex;
 }
 
-.container-xl .card .conteudo-card .area-info-personagem .area-icone-thumb img {
+.container-xl .card .conteudo-card .area-info-personagem .classificacao a {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-xl .card .conteudo-card .area-info-personagem .classificacao img {
     height: 30px;
     margin: 0 5px;
 }
@@ -93,6 +102,7 @@
 .container-xl .card .conteudo-card .area-info-personagem table .obs {
     text-align: center;
     border-bottom: 1px solid #ffffff63;
+    padding: 20px 30px;
 }
 .container-xl .card .conteudo-card .area-info-personagem table {
     border-top: 1px solid #ffffff63;

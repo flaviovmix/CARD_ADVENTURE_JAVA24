@@ -17,15 +17,69 @@
     box-shadow: 0px 0px 2px #22222253;
 }
 
+.menu-lateral-card {
+    position: absolute;
+    display: flex;
+    margin: 4px 0 0 8px;
+    left: 40px;
+    width: 40px;
+    height: 82%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(241, 241, 241);
+    border-radius: 5px;
+    border: 1px solid rgb(145, 145, 145);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.19);
+    opacity: 0;
+    transition:
+        left 0.3s ease, 
+        opacity 0.3s ease, 
+        box-shadow 0.3s ease;
+    z-index: 10;
+}
+
+.menu-lateral-card.mover-card {
+    left: 0px;
+    opacity: 1;
+    z-index: 5;
+}
+
+.area-icones-thumb {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.controle-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.area-icones-thumb img {
+    width: 20px;
+}
+.controle-card img {
+    width: 18px;
+}
+
+.controle-card .lixeira {
+    margin-bottom: 8px;
+}
+
 .container-xl .card .menu-bolinha {
     position: absolute;
     right: 5%;
-    top: 3%;
+    top: 55px;
     z-index: 3;
 }
 
 .container-xl .card .menu-bolinha svg {
-    margin-top: 32px;
     box-sizing: content-box;
     width: 35px;
     height: 35px;
@@ -140,12 +194,10 @@
     transition: transform 0.3s ease;
     text-decoration: none;
     cursor: pointer;
-
-    /* background-color: red; */
 }
 
 .container-xl .card .area-link-fases .icone {
-    width: 120%; /* 80% da largura do <a> */
+    width: 120%; 
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: contain;
