@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quebra-Cabeça com Peças PNG Variadas</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #game-container {
+      position: relative;
+      width: 700px;
+      height: 900px;
+      background-color: white;
+      border: 2px solid #444;
+    }
+
+    .piece {
+      position: absolute;
+      cursor: grab;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container"></div>
+
+  <script>
+    const container = document.getElementById("game-container");
+    const rows = 3;
+    const cols = 4;
+    const totalPieces = 12;
+    const marginThreshold = 30; // margem de encaixe
+
+    for (let i = 0; i < totalPieces; i++) {
+      const img = new Image();
+      img.src = `pecas/${i + 1}.png`;
+      img.classList.add("piece");
+
+      img.onload = () => {
+        // posição correta dentro dos 700x900
+        const piecePosX = (i % cols) * (700 / cols);
+        const piecePosY = Math.floor(i / cols) * (900 / rows);
+
+        img.dataset.correctX = piecePosX;
+        img.dataset.correctY = piecePosY;
+
+        // posição aleatória inicial
+        img.style.left = Math.random() * (700 - img.width) + "px";
+        img.style.top = Math.random() * (900 - img.height) + "px";
+
+        makeDraggable(img);
+        container.appendChild(img);
+      };
+    }
+
+    function makeDraggable(el) {
+      let offsetX, offsetY, dragging = false;
+
+      el.addEventListener("mousedown", (e) => {
+        dragging = true;
+        offsetX = e.offsetX;
+        offsetY = e.offsetY;
+        el.style.zIndex = 1000;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (dragging) {
+          const rect = container.getBoundingClientRect();
+          const x = e.clientX - rect.left - offsetX;
+          const y = e.clientY - rect.top - offsetY;
+
+          el.style.left = x + "px";
+          el.style.top = y + "px";
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (dragging) {
+          dragging = false;
+
+          const x = parseFloat(el.style.left);
+          const y = parseFloat(el.style.top);
+          const correctX = parseFloat(el.dataset.correctX);
+          const correctY = parseFloat(el.dataset.correctY);
+
+          const distance = Math.hypot(x - correctX, y - correctY);
+
+          if (distance < marginThreshold) {
+            el.style.left = correctX + "px";
+            el.style.top = correctY + "px";
+            el.style.zIndex = 0;
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
